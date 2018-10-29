@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { EntityService } from '../services/entity.service';
+import { entityModel } from '../models/entityModel';
 
 @Component({
   selector: 'app-entity-editor',
@@ -10,30 +11,43 @@ import { EntityService } from '../services/entity.service';
 })
 export class EntityEditorComponent implements OnInit {
 
-  public entity;
-  entityForm: FormGroup;
+  public entity: entityModel;
+  form: FormGroup;
   constructor(private entityService: EntityService) {
-    this.entityForm = this.createFormGroup();
+    this.form = this.createFormGroup();
   }
 
   ngOnInit() {
     this.getEntityInfo();
+    if (this.entity != null) {
+      this.form.patchValue({
+        entityName: this.entity.entityName,
+        contactName: this.entity.contactName,
+        address: this.entity.address,
+        website: this.entity.website,
+        email: this.entity.email,
+        phone: this.entity.phone
+      })
+    }
   }
 
   createFormGroup() {
     return new FormGroup({
-        name: new FormControl(''),
-        contact: new FormControl(''),
-        address: new FormControl(''),
-        email: new FormControl(''),
-        phone: new FormControl('')
-      })   
+      entityName: new FormControl(''),
+      contactName: new FormControl(''),
+      address: new FormControl(''),
+      website: new FormControl(''),
+      email: new FormControl(''),
+      phone: new FormControl('')
+    })   
   }
-  getEntityInfo() {
-    var entity = this.entityService.getEntity('1').subscribe(
+    
+  getEntityInfo(): void {
+    this.entityService.getEntity('1').subscribe(
       data => { this.entity = data },
     err => console.error(err),
       () => console.log('done loading entity')
     );
+    
   }
-}
+ }

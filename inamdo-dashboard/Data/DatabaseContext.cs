@@ -27,7 +27,15 @@ namespace dashboard.Data
             if (client != null)
                 _database = client.GetDatabase(settings.Value.Database);
         }
-        
+
+        public IMongoCollection<Entity> Entities
+        {
+            get
+            {
+                return _database.GetCollection<Entity>("entity");
+            }
+        }
+
         public IMongoCollection<User> Users
         {
             get

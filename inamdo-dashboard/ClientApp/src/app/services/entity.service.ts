@@ -16,7 +16,7 @@ export class EntityService {
 
   constructor(private http: HttpClient) { }
 
-  getEntityServiceUrl = environment.apiUrl + "/entity/";
+  getEntityServiceUrl = environment.apiUrl + "/entities/";
   
   getEntity(entityId: string) {
     var fullUrl = this.getEntityServiceUrl + entityId;

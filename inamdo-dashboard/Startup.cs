@@ -41,6 +41,7 @@ namespace dashboard
             // enable CORS
             services.AddCors();
 
+            services.AddTransient<IEntityRepository, EntityRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IQuestionRepository, QuestionRepository>();
             services.AddTransient<IResponseRepository, ResponseRepository>();
