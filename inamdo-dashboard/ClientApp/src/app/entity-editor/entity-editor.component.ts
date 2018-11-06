@@ -19,6 +19,9 @@ export class EntityEditorComponent implements OnInit {
 
   ngOnInit() {
     this.getEntityInfo();
+  }
+
+  populateForm() {
     if (this.entity != null) {
       this.form.patchValue({
         entityName: this.entity.entityName,
@@ -44,10 +47,23 @@ export class EntityEditorComponent implements OnInit {
     
   getEntityInfo(): void {
     this.entityService.getEntity('1').subscribe(
-      data => { this.entity = data },
+      data => {
+        this.entity = data;
+        this.populateForm();
+      },
     err => console.error(err),
       () => console.log('done loading entity')
     );
-    
+    this.populateForm();
   }
+
+  //getEntityInfo(): void {
+  //  this.entityService.getEntity('1').toPromise().then(data => {
+  //    this.entity = data;
+  //    this.populateForm();
+  //  })
+    
+
+  }
+
  }
