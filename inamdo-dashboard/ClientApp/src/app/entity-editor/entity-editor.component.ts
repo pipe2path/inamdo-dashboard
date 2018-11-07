@@ -42,16 +42,16 @@ export class EntityEditorComponent implements OnInit {
       website: new FormControl(''),
       email: new FormControl(''),
       phone: new FormControl('')
-    })   
+    })
   }
-    
+
   getEntityInfo(): void {
     this.entityService.getEntity('1').subscribe(
       data => {
         this.entity = data;
         this.populateForm();
       },
-    err => console.error(err),
+      err => console.error(err),
       () => console.log('done loading entity')
     );
     this.populateForm();
@@ -62,8 +62,5 @@ export class EntityEditorComponent implements OnInit {
   //    this.entity = data;
   //    this.populateForm();
   //  })
-    
-
-  }
-
+  //}
  }

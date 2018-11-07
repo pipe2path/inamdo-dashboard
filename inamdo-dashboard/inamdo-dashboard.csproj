@@ -28,14 +28,12 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\entityModel.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\services\" />
+    <None Remove="ClientApp\src\app\models\questionModel.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\entityModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\questionModel.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

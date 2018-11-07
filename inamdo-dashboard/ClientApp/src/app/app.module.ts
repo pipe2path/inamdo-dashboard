@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EntityEditorComponent } from './entity-editor/entity-editor.component';
+import { QuestionsResponsesComponent } from './questions-responses/questions-responses.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EntityEditorComponent } from './entity-editor/entity-editor.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    EntityEditorComponent
+    EntityEditorComponent,
+    QuestionsResponsesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -27,7 +29,7 @@ import { EntityEditorComponent } from './entity-editor/entity-editor.component';
     FormsModule,
     RouterModule.forRoot([
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'questions-responses', component: QuestionsResponsesComponent },
       { path: 'entity-editor', component: EntityEditorComponent }
     ]),
     ReactiveFormsModule
