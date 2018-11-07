@@ -17,8 +17,8 @@ export class QuestionResponseService {
   getQuestionsServiceUrl = environment.apiUrl + "/questions/";
 
   getQuestions(entityId: number) {
-    var fullUrl = this.getQuestionsServiceUrl + entityId;
-    var questions = this.http.get<questionModel>(fullUrl);
+    var fullUrl = this.getQuestionsServiceUrl ;
+    var questions = this.http.get(fullUrl);
     return questions;
   }
 

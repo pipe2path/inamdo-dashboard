@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { QuestionModel } from '../models/questionModel';
 import { QuestionResponseService } from '../services/question-response.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { QuestionResponseService } from '../services/question-response.service';
   styleUrls: ['./questions-responses.component.css'],
   providers: [QuestionResponseService]
 })
-export class QuestionsResponsesComponent implements OnInit {
+export class QuestionsResponsesComponent {
 
   public questions;
   constructor(private questionsService: QuestionResponseService) { }

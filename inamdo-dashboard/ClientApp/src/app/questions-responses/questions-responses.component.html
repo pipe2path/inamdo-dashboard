@@ -1,3 +1,13 @@
-<p>
-  questions-responses works!
-</p>
+<div class="container">
+  <div *ngFor="let q of questions; let i = index;">
+    <div class="row">
+      <div class="col-sm">
+        {{ q.questionDesc }}
+      </div>
+      <div class="col-sm">
+        {{ q.questionType }}
+      </div>
+    </div>
+  </div>
+  </div>ions-responses works!
+
