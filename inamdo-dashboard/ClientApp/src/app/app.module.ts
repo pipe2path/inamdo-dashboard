@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EntityEditorComponent } from './entity-editor/entity-editor.component';
 import { QuestionsResponsesComponent } from './questions-responses/questions-responses.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { QuestionsResponsesComponent } from './questions-responses/questions-res
       { path: 'questions-responses', component: QuestionsResponsesComponent },
       { path: 'entity-editor', component: EntityEditorComponent }
     ]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent]

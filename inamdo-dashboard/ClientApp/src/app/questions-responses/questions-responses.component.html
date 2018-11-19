@@ -1,13 +1,34 @@
-<div class="container">
-  <div *ngFor="let q of questions; let i = index;">
-    <div class="row">
-      <div class="col-sm">
-        {{ q.questionDesc }}
-      </div>
-      <div class="col-sm">
-        {{ q.questionType }}
-      </div>
-    </div>
-  </div>
-  </div>ions-responses works!
+<h1>Reviews Dashboard</h1>
 
+<p>Select a user to see questions and responses</p>
+
+<p *ngIf="!users"><em>Loading...</em></p>
+
+<table class='table' *ngIf="users">
+  <thead>
+    <tr>
+      <th>Survey Id</th>
+      <th>User</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Opted In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users">
+      <td>{{ u.surveyId }}</td>
+      <td>{{ u.userName }}</td>
+      <td>{{ u.userPhone }}</td>
+      <td>{{ u.userEmail }}</td>
+      <td>{{ u.optIn }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ag-grid-angular style="width: 100%; height: 400px"
+                 class="ag-theme-balham"
+                 [enableSorting]="true"
+                 [enableFilter]="true"
+                 [rowData]="users"
+                 [columnDefs]="columnDefs">
+</ag-grid-angular>
