@@ -36,6 +36,7 @@ namespace dashboard
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+
             });
 
             // enable CORS
@@ -45,6 +46,7 @@ namespace dashboard
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IQuestionRepository, QuestionRepository>();
             services.AddTransient<IResponseRepository, ResponseRepository>();
+            services.AddTransient<IUserDetailRepository, UserDetailRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

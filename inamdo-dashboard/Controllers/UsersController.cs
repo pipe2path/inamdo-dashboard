@@ -18,6 +18,7 @@ namespace inamdo_dashboard.Controllers
             _userRepository = userRepository;
         }
 
+
         [HttpGet]
         [Route("api/users")]
         public async Task<IEnumerable<User>> Get()

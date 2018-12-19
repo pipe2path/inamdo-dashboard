@@ -22,7 +22,7 @@ namespace dashboard.Data
             try
             {
                 return await _context.Users.Find(o => o.optIn == true).ToListAsync();
-    }
+            }
             catch (Exception ex)
             {
                 throw ex;
