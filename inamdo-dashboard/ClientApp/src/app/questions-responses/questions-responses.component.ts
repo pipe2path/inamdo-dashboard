@@ -35,14 +35,53 @@ export class QuestionsResponsesComponent {
     );
   }
 
+  //rowData = this.questions;
+
+  private gridApi;
+  private gridColumnApi;
+  public userDetails;
+    
   columnDefs = [
     { headerName: 'Survey ID', field: 'surveyId', checkboxSelection: true },
     { headerName: 'User', field: 'userName' },
     { headerName: 'Phone', field: 'userPhone' },
-    { headerName: 'Email', field: 'userEmail' },
-    { headerName: 'Opted In', field: 'optIn' },
+    { headerName: 'Email', field: 'userEmail' }
   ];
 
-  //rowData = this.questions;
+  detailCellRendererParams = {
+    detailGridOptions: {
+      columnDefs:
+        [{ headerName: 'Question', field: 'questionDesc' },
+        { headerName: 'Question Type', field: 'questionType' },
+        { headerName: 'Response', field: 'choice' }
+        ],
+      onFirstDataRendered(params) {
+        params.api.sizeColumnsToFit();
+      }
+    },
+    getDetailRowData: function (params) {
+      params.successCallback(params.data.callRecords);
+    }
+  };
+
+  getUserDetails(): void {
+    this.userService.getUserDetails(1).subscribe(
+      data => { this.userDetails = data; });
+  }
+
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+
+    this.getUserDetails();
+    
+    setTimeout(function () {
+      var rowCount = 0;
+      params.api.forEachNode(function (node) {
+        node.setExpanded(rowCount++ === 1);
+      });
+    }, 500);
+  }
+
 
 }

@@ -17,8 +17,6 @@ namespace dashboard.Model
         public string userPhone { get; set; }
         public string userEmail { get; set; }
         public bool optIn { get; set; }
-        public List<QuestionResponse> responses { get; set; }
+        public List<UserDetailResponse> responses { get; set; }
     }
-
-
 }

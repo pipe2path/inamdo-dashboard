@@ -21,5 +21,4 @@ export class QuestionResponseService {
     var questions = this.http.get(fullUrl);
     return questions;
   }
-
 }

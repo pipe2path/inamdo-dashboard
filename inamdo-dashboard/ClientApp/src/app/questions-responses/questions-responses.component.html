@@ -29,6 +29,9 @@
                  class="ag-theme-balham"
                  [enableSorting]="true"
                  [enableFilter]="true"
-                 [rowData]="users"
-                 [columnDefs]="columnDefs">
+                 [rowData]="userDetail"
+                 [columnDefs]="columnDefs"
+                 [masterDetail]="true"
+                 [detailCellRendererParams]="detailCellRendererParams"
+                 (gridReady)="onGridReady($event)">
 </ag-grid-angular>

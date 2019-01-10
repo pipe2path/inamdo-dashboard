@@ -47,6 +47,7 @@ namespace dashboard
             services.AddTransient<IQuestionRepository, QuestionRepository>();
             services.AddTransient<IResponseRepository, ResponseRepository>();
             services.AddTransient<IUserDetailRepository, UserDetailRepository>();
+            services.AddTransient<ISurveyDetailRepository, SurveyDetailsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

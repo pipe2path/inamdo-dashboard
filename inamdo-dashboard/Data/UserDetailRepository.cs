@@ -35,16 +35,17 @@ namespace dashboard.Data
                     userDetail.userEmail = u.userEmail;
                     userDetail.optIn = u.optIn;
                     List<Response> responses = await _context.Responses.Find(r => r.userId == u.internalId).ToListAsync();
-                    List<QuestionResponse> questionResponses = new List<QuestionResponse>();
+                    List<UserDetailResponse> udResponses = new List<UserDetailResponse>();
                     foreach (Question q in questions)
                     {
-                        QuestionResponse qr = new QuestionResponse();
-                        qr.question = q;
                         Response response = await _context.Responses.Find(s => s.questionId == q.questionId).SingleOrDefaultAsync();
-                        qr.response = response;
-                        questionResponses.Add(qr);
+                        UserDetailResponse udResponse = new UserDetailResponse();
+                        udResponse.questionDesc = q.questionDesc;
+                        udResponse.questionType = q.questionType;
+                        udResponse.choice = response.choice;
+                        udResponses.Add(udResponse);
                     }
-                    userDetail.responses = questionResponses;
+                    userDetail.responses = udResponses;
                     userDetails.Add(userDetail);
                 }
                 return userDetails;
@@ -55,4 +56,5 @@ namespace dashboard.Data
             }
         }
     }
+
 }
